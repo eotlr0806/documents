@@ -41,10 +41,13 @@ sudo vi /etc/fstab
 /dev/nvme2n1            /app     ext4   defaults,noatime        1 1
 ```
 
-4. 유저 생성 및 sudo 그룹 부여
+4. 유저 생성 및 sudo 그룹 부여 및 ssh public key copy
 ```
 sudo adduser USER_NAME
 sudo usermod -aG sudo USER_NAME
+
+sudo cp -R /home/ubuntu/.ssh /home/USER_NAME
+sudo chown -R USER_NAME:USERNAME /home/USER_NAME/.ssh
 ```
 
 5. Timezone 설정
