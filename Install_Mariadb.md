@@ -50,7 +50,7 @@ port 부분 주석 해제 및 bind-address를 0.0.0.0 으로 변경
 sudo systemctl restart mysqld
 ```
 
-5. Mariadb 데이터 파일 변경
+5. Mariadb 데이터 파일 위치 변경
 ```
 systemctl stop mysql
 
