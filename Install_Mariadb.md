@@ -13,14 +13,13 @@ sudo apt update && sudo apt-get -y upgrade
 sudo apt-get install -y mariadb-server
 ```
 
-3. Maria DB 접속
+3. Maria DB 접속 및 데이터베이스 생성
 ```
-sudo mysql                            // password 없이 sudo 인증으로 로그인
-set password = password('1234');      // 패스워드 초기화
-flush privileges;                    
-
-// exit 이후 재로그인
-mysql -u root -p                      // 기존의 방식으로 로그인
+sudo mysql                              // password 없이 sudo 인증으로 로그인
+create database DATABASE_NAME;
+create user 'USER_NAME'@'%' identified by 'USER_PW';  // '%'는 외부접속 허용 내부만 사용할 경우 localhost
+grant all privileges on DATABASE_NAME.* to 'USER_NAME'@'%';
+flush privileges;
 ```
 
 4. Maria DB Port 및 IP 접속
@@ -49,4 +48,22 @@ bind-address            = 0.0.0.0
 port 부분 주석 해제 및 bind-address를 0.0.0.0 으로 변경
 
 sudo systemctl restart mysqld
+```
+
+
+
+
+
+
+번외 MariaDB 삭제
+
+```
+// 삭제
+sudo apt purge mariadb-*
+sudo apt autoremove
+sudo apt purge mysql-common
+sudo reboot
+
+// 재설치
+sudo apt install mariadb-server --fix-missing --fix-broken
 ```
