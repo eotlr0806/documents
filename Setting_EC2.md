@@ -41,6 +41,13 @@ sudo vi /etc/fstab
 /dev/nvme2n1            /app     ext4   defaults,noatime        1 1
 ```
 
+3-1. EBS 사용시
+```
+lsblk
+sudo growpart /dev/nvme0n1 1
+sudo resize2fs /dev/nvme0n1p1
+```
+
 4. 유저 생성 및 sudo 그룹 부여 및 ssh public key copy
 ```
 sudo adduser USER_NAME
