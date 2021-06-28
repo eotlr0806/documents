@@ -54,7 +54,7 @@ sudo systemctl restart mysqld
 ```
 systemctl stop mysql
 
-mkdir -p /home/mariadb/mysql 
+mkdir -p /data/mariadb/mysql 
 rsync -av /var/lib/mysql /data/mariadb/mysql
 vi /etc/mysql/mariadb.conf.d/50-server.cnf
 
