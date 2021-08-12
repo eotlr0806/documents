@@ -52,11 +52,11 @@ sudo systemctl restart mysqld
 
 5. Mariadb 데이터 파일 위치 변경
 ```
-systemctl stop mysql
+sudo systemctl stop mysql
 
-mkdir -p /data/mariadb/mysql 
-rsync -av /var/lib/mysql /data/mariadb/mysql
-vi /etc/mysql/mariadb.conf.d/50-server.cnf
+sudo mkdir -p /data/mariadb/mysql 
+sudo rsync -av /var/lib/mysql /data/mariadb/mysql
+sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 
 [mysqld]
 
@@ -74,17 +74,17 @@ lc-messages-dir         = /usr/share/mysql
 #skip-external-locking
 
 
-vi /usr/lib/systemd/system/mariadb.service 
+sudo vi /usr/lib/systemd/system/mariadb.service 
 # Prevent accessing /home, /root and /run/user 
 #ProtectHome=true 
 ProtectHome=false
 
 
 // 시작
-systemctl start mysql
+sudo systemctl start mysql
 
 // 만약 Warning: mariadb.service changed on disk. Run 'systemctl daemon-reload' to reload units. 에러 발생 시
-systemctl daemon-reload 후 다시 시도.
+sudo systemctl daemon-reload 후 다시 시도.
 ```
 
 
