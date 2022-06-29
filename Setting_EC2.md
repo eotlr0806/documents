@@ -61,3 +61,16 @@ sudo chown -R USER_NAME:USERNAME /home/USER_NAME/.ssh
 ```
 sudo timedatectl set-timezone Asia/Seoul
 ```
+
+ps. ssh 접속시 아래와 같이 나올 경우, pem 파일 수정
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for '...' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+
+chmod 400 
+```
+
